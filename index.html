@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10101b">
+  <meta name="description" content="Valovoc, ton espace pour discuter, te détendre et rejoindre la communauté.">
+  <title>Valovoc — le coin chill</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="Valovoc, accueil">
+        <span class="brand-mark">V<span>✳</span></span>
+        <span class="brand-name">valo<span>voc</span></span>
+      </a>
+
+      <div class="server-card">
+        <div class="server-avatar">V</div>
+        <div class="server-copy"><strong>Le Valo Club</strong><span>Communauté ouverte</span></div>
+        <span class="online-dot" title="En ligne"></span>
+      </div>
+
+      <div class="sidebar-label">ESPACES</div>
+      <nav class="room-nav" aria-label="Salons">
+        <button class="room-link active" data-room="chill" aria-current="page">
+          <span class="room-icon hash">#</span><span class="room-title">chill</span><span class="room-count">12</span>
+        </button>
+        <button class="room-link voice-link" data-room="vocal">
+          <span class="room-icon">◖))</span><span class="room-title">Vocal chill</span><span class="voice-live"><i></i> 3</span>
+        </button>
+        <button class="room-link" data-room="rankup">
+          <span class="room-icon rank-icon">↗</span><span class="room-title">rankup</span>
+        </button>
+        <button class="room-link" data-room="swift">
+          <span class="room-icon swift-icon">ϟ</span><span class="room-title">swift</span>
+        </button>
+        <div id="adminRoomWrap" class="admin-wrap" hidden>
+          <div class="sidebar-label admin-label">ÉQUIPE</div>
+          <button class="room-link" data-room="admin">
+            <span class="room-icon">♙</span><span class="room-title">admin / modo</span><span class="lock-icon">⌑</span>
+          </button>
+        </div>
+      </nav>
+
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-note"><span class="note-star">✦</span><p>Un petit coin tranquille<br>pour la commu.</p></div>
+      <button class="profile" id="profileButton" aria-label="État de connexion">
+        <span class="avatar avatar-me">V</span>
+        <span class="profile-copy"><strong id="profileName">Invité</strong><span id="profileStatus">Non connecté</span></span>
+        <span class="profile-menu">···</span>
+      </button>
+    </aside>
+
+    <main class="main-panel">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Ouvrir les salons">☰</button>
+        <div class="breadcrumbs"><span class="crumb-hash">#</span><strong id="headerRoom">chill</strong><span class="crumb-divider">/</span><span id="headerDescription">pose-toi, t'es chez toi</span></div>
+        <div class="topbar-actions"><span class="topbar-status"><i></i> <span>12 en ligne</span></span><button class="icon-button" id="helpButton" aria-label="À propos">?</button></div>
+      </header>
+
+      <section class="room-content" id="roomContent" aria-live="polite"></section>
+
+      <footer class="composer-wrap" id="composerWrap">
+        <form class="composer" id="messageForm">
+          <button type="button" class="composer-plus" id="emojiButton" aria-label="Ajouter un emoji">＋</button>
+          <label class="sr-only" for="messageInput">Écrire un message dans le salon chill</label>
+          <input id="messageInput" autocomplete="off" maxlength="500" placeholder="Écrire dans #chill…">
+          <button class="send-button" type="submit" aria-label="Envoyer le message">↑</button>
+        </form>
+        <p class="composer-hint">Les messages de cette démo restent dans ton navigateur.</p>
+      </footer>
+    </main>
+
+    <aside class="right-panel">
+      <div class="right-top"><span class="live-pill"><i></i> EN DIRECT</span><button class="icon-button" id="infoButton" aria-label="Informations">···</button></div>
+      <div class="right-hero"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="hero-spark">✦</div><div class="hero-letter">V</div><div class="hero-caption">LA COMMU, TOUT SIMPLEMENT</div></div>
+      <div class="community-title"><h2>Le Valo Club</h2><span class="verified">✦</span></div>
+      <p class="community-description">Un espace chill pour discuter, progresser et partager autour de Valorant.</p>
+      <div class="member-stats"><div><strong>128</strong><span>membres</span></div><div><strong>12</strong><span>en ligne</span></div></div>
+      <div class="right-divider"></div>
+      <div class="people-heading"><span>EN LIGNE</span><span class="people-count">12</span></div>
+      <div class="people-list">
+        <div class="person"><span class="avatar person-a">L</span><span class="person-name">Luna</span><i class="person-status"></i></div>
+        <div class="person"><span class="avatar person-b">M</span><span class="person-name">maxou</span><i class="person-status"></i></div>
+        <div class="person"><span class="avatar person-c">N</span><span class="person-name">Nox</span><i class="person-status"></i></div>
+        <div class="person"><span class="avatar person-d">A</span><span class="person-name">Aeryn</span><i class="person-status away"></i></div>
+      </div>
+      <div class="right-footer">Fait pour les bons moments <span>✦</span></div>
+    </aside>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Fermer">×</button>
+      <div class="modal-icon">✦</div><h2 id="modalTitle">Bienvenue sur Valovoc</h2>
+      <p id="modalText">Cette interface est une première version de la communauté. La connexion, les messages partagés entre membres et le vocal temps réel nécessitent un serveur et une authentification.</p>
+      <button class="modal-ok" id="modalOk">Compris</button>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
